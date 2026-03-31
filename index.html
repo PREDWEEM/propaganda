@@ -140,12 +140,12 @@
             }
         }
         const narracion = {
-            scene1: ["Hola, ¿qué tal?", "Te explico rápido cómo funciona PREDWEEM."],
-            scene2: ["El sistema cargar automaticamente los datos meteorologicos del sitio en tiempo real.", "Fecha, temperatura máxima, mínima y lluvia."],
-            scene3: ["Luego una red neuronal predice la germinación del raigrás.", "Segundo, calcula el balance hídrico del suelo y se detiene si la humedad está por debajo del 20 %.", "Tercero, un reloj térmico te marca la ventana óptima entre 600 y 800 grados-día."],
+            scene1: ["Hola, ¿qué tal?", "Te explico rápido cómo funciona predwim."],
+            scene2: ["Solo tenés que poner cuatro datos todos los días.", "Fecha, temperatura máxima, mínima y lluvia."],
+            scene3: ["Primero, una red neuronal predice la germinación del raigrás.", "Segundo, calcula el balance hídrico del suelo y se detiene si la humedad está por debajo del 20 %.", "Tercero, un reloj térmico te marca la ventana óptima entre 600 y 800 grados-día."],
             scene4: ["Visualmente tenés un mapa de riesgo en rojo y verde.", "Una curva interactiva con las cohortes.", "El medidor de grados-día con pronóstico.", "Y el balance entre lluvia y humedad."],
             scene5: ["Así aplicás el herbicida justo en el momento exacto.", "Evitás la resistencia.", "Ahorrás un montón de plata.", "Y cuidás el ambiente."],
-            scene6: ["PREDWEEM versión 2026", "Validado en campo.", "Es completamente gratis.", "Probálo ahora."]
+            scene6: ["predwim versión 2026", "Validado en campo.", "Es completamente gratis.", "Probálo ahora."]
         };
         function playFastExplanation() {
             window.speechSynthesis.cancel();
@@ -157,12 +157,11 @@
             narracion.scene1.forEach((p, i) => setTimeout(() => speak(p), time + i * pause));
             setTimeout(() => {
                 document.getElementById('scene1').style.display = 'none';
-                // Transición INSTANTÁNEA a escena 2 (sin retardo)
                 document.getElementById('scene2').style.display = 'flex';
                 narracion.scene2.forEach((p, i) => setTimeout(() => speak(p), 50 + i * pause));
             }, 3200);
             time = 3200 + 5500;
-            // ESCENA 3 (transición instantánea)
+            // ESCENA 3
             setTimeout(() => {
                 document.getElementById('scene2').style.display = 'none';
                 document.getElementById('scene3').style.display = 'flex';
