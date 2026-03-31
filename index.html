@@ -34,17 +34,15 @@
             PREDWEEM
             <span class="text-xs bg-white/20 px-4 py-1 rounded-3xl">Explicación rápida</span>
         </div>
-
         <!-- ESCENA 1 (3 segundos) -->
         <div id="scene1" class="scene relative h-[640px] flex flex-col">
             <img src="1-campo.jpg" class="absolute inset-0 w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/70"></div>
             <div class="absolute top-12 left-0 right-0 text-center px-8">
-                <h1 class="text-5xl font-bold leading-tight">¿Cómo funciona<br>PREWIM?</h1>
+                <h1 class="text-5xl font-bold leading-tight">¿Cómo funciona<br>PREDWEEM?</h1>
                 <p class="mt-8 text-2xl">Modelo predictivo de raigrás</p>
             </div>
         </div>
-
         <!-- ESCENA 2 -->
         <div id="scene2" class="scene relative h-[640px] flex flex-col">
             <img src="2-app.jpg" class="absolute inset-0 w-full h-full object-cover">
@@ -55,7 +53,6 @@
                 </div>
             </div>
         </div>
-
         <!-- ESCENA 3 -->
         <div id="scene3" class="scene relative h-[640px] flex flex-col">
             <img src="2-app.jpg" class="absolute inset-0 w-full h-full object-cover">
@@ -65,7 +62,6 @@
                 <div class="overlay">3. Reloj térmico: ventana 600-800 °Cd</div>
             </div>
         </div>
-
         <!-- ESCENA 4 -->
         <div id="scene4" class="scene relative h-[640px] flex flex-col">
             <img src="2-app.jpg" class="absolute inset-0 w-full h-full object-cover">
@@ -76,7 +72,6 @@
                 <div class="overlay text-sm">Balance lluvia vs humedad</div>
             </div>
         </div>
-
         <!-- ESCENA 5 -->
         <div id="scene5" class="scene relative h-[640px] flex flex-col">
             <img src="3-productor.jpg" class="absolute inset-0 w-full h-full object-cover">
@@ -90,7 +85,6 @@
                 </div>
             </div>
         </div>
-
         <!-- ESCENA 6 -->
         <div id="scene6" class="scene relative h-[640px] flex flex-col items-center justify-center bg-gradient-to-br from-emerald-900 to-green-950">
             <img src="4-final.jpg" class="absolute inset-0 w-full h-full object-cover opacity-30">
@@ -98,7 +92,7 @@
                 <div class="text-6xl mb-6">🌾🇦🇷</div>
                 <h2 class="text-5xl font-bold">PREWIM vK4.9.8</h2>
                 <p class="text-xl mt-4">100% gratis • Validado en campo</p>
-                <a href="https://predweem.github.io/mis-apps/" target="_blank" 
+                <a href="https://predweem.github.io/mis-apps/" target="_blank"
                    class="mt-12 block bg-white text-emerald-800 font-bold text-2xl py-4 px-10 rounded-3xl inline-flex items-center gap-3 mx-auto">
                     PROBÁLO AHORA
                     <span class="text-3xl">→</span>
@@ -106,25 +100,20 @@
                 <p class="text-xs mt-10 text-white/70">https://predweem.github.io/mis-apps/</p>
             </div>
         </div>
-
         <div class="bg-zinc-900 py-5 px-6 flex flex-col items-center gap-4">
-            <button onclick="playFastExplanation()" 
+            <button onclick="playFastExplanation()"
                     class="w-full flex items-center justify-center gap-3 bg-emerald-500 hover:bg-emerald-600 py-5 rounded-3xl font-bold text-xl transition">
                 <span class="text-4xl">▶</span>
                 ESCUCHAR EXPLICACIÓN RÁPIDA
             </button>
-
             <select id="voiceSelect" class="w-full bg-zinc-800 text-white rounded-3xl py-3 px-5 text-sm"></select>
-
             <button onclick="window.location.reload()" class="text-white/70 hover:text-white text-xs flex items-center gap-1">
                 <span>⟳</span> REINICIAR
             </button>
         </div>
     </div>
-
     <script>
         let selectedVoice = null;
-
         function loadVoices() {
             const voices = speechSynthesis.getVoices();
             const select = document.getElementById('voiceSelect');
@@ -140,34 +129,29 @@
             });
             selectedVoice = voices.find(v => v.lang === 'es-AR') || voices.find(v => v.lang.startsWith('es')) || voices[0];
         }
-
         function speak(phrase) {
             if ('speechSynthesis' in window) {
                 const utterance = new SpeechSynthesisUtterance(phrase);
                 utterance.lang = 'es-AR';
-                utterance.rate = 0.96;
+                utterance.rate = 0.95;
                 utterance.pitch = 1.0;
                 if (selectedVoice) utterance.voice = selectedVoice;
                 window.speechSynthesis.speak(utterance);
             }
         }
-
         const narracion = {
-            scene1: ["Hola.", "Te explico cómo funciona PREDWIM."],
-            scene2: ["Solo ingresás cuatro datos diarios.", "Fecha, temperatura máxima, mínima y lluvia."],
-            scene3: ["Primero, el sistema a traves de una red neuronal predice la germinación.", "Segundo, se calcula el balance hídrico del suelo.", "Tercero, un reloj térmico calcula la ventana óptima 600 a 800 grados-día."],
-            scene4: ["Visualmente observas un mapa de riesgo rojo y verde.", "Curva interactiva con cohortes.", "Medidor de grados-día con pronóstico.", "Y balance de lluvia versus humedad."],
-            scene5: ["Así aplicás el herbicida en el momento exacto.", "Evitás resistencia.", "Ahorrás dinero.", "Y cuidás el ambiente."],
-            scene6: ["PREDWIM VERSION 2026", "Validado en campo.", "Es completamente gratis.", "Probálo ahora."]
+            scene1: ["Hola, ¿qué tal?", "Te explico rápido cómo funciona PREDWEEM."],
+            scene2: ["El sistema cargar automaticamente los datos meteorologicos del sitio en tiempo real.", "Fecha, temperatura máxima, mínima y lluvia."],
+            scene3: ["Luego una red neuronal predice la germinación del raigrás.", "Segundo, calcula el balance hídrico del suelo y se detiene si la humedad está por debajo del 20 %.", "Tercero, un reloj térmico te marca la ventana óptima entre 600 y 800 grados-día."],
+            scene4: ["Visualmente tenés un mapa de riesgo en rojo y verde.", "Una curva interactiva con las cohortes.", "El medidor de grados-día con pronóstico.", "Y el balance entre lluvia y humedad."],
+            scene5: ["Así aplicás el herbicida justo en el momento exacto.", "Evitás la resistencia.", "Ahorrás un montón de plata.", "Y cuidás el ambiente."],
+            scene6: ["PREDWEEM versión 2026", "Validado en campo.", "Es completamente gratis.", "Probálo ahora."]
         };
-
         function playFastExplanation() {
             window.speechSynthesis.cancel();
             document.querySelectorAll('.scene').forEach(s => s.style.display = 'none');
-
             let time = 0;
             const pause = 550;
-
             // ESCENA 1 → 3 segundos exactos
             document.getElementById('scene1').style.display = 'flex';
             narracion.scene1.forEach((p, i) => setTimeout(() => speak(p), time + i * pause));
@@ -176,37 +160,29 @@
                 // Transición INSTANTÁNEA a escena 2 (sin retardo)
                 document.getElementById('scene2').style.display = 'flex';
                 narracion.scene2.forEach((p, i) => setTimeout(() => speak(p), 50 + i * pause));
-            }, 3000);
-
-            time = 3000 + 6000;
-
+            }, 3200);
+            time = 3200 + 5500;
             // ESCENA 3 (transición instantánea)
             setTimeout(() => {
                 document.getElementById('scene2').style.display = 'none';
                 document.getElementById('scene3').style.display = 'flex';
                 narracion.scene3.forEach((p, i) => setTimeout(() => speak(p), 50 + i * pause));
             }, time);
-
-            time += 21000;
-
+            time += 18500;
             // ESCENA 4
             setTimeout(() => {
                 document.getElementById('scene3').style.display = 'none';
                 document.getElementById('scene4').style.display = 'flex';
                 narracion.scene4.forEach((p, i) => setTimeout(() => speak(p), 50 + i * pause));
             }, time);
-
-            time += 14000;
-
+            time += 13500;
             // ESCENA 5
             setTimeout(() => {
                 document.getElementById('scene4').style.display = 'none';
                 document.getElementById('scene5').style.display = 'flex';
                 narracion.scene5.forEach((p, i) => setTimeout(() => speak(p), 50 + i * pause));
             }, time);
-
-            time += 14000;
-
+            time += 12500;
             // ESCENA 6
             setTimeout(() => {
                 document.getElementById('scene5').style.display = 'none';
@@ -214,7 +190,6 @@
                 narracion.scene6.forEach((p, i) => setTimeout(() => speak(p), 50 + i * pause));
             }, time);
         }
-
         window.onload = () => {
             loadVoices();
             speechSynthesis.onvoiceschanged = loadVoices;
