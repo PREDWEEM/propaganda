@@ -1,43 +1,199 @@
-<!-- AUDIO AUTOMÁTICO (optimzado para móvil + Instagram) -->
-<audio 
-  id="explicacion-audio" 
-  src="TU-AUDIO.mp3" 
-  autoplay 
-  muted 
-  playsinline 
-  loop>
-</audio>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="PREDWEEM - Modelo predictivo de raigrás 100% GRATIS 🇦🇷">
+    
+    <!-- META TAGS PERFECTOS PARA INSTAGRAM STORIES / REELS -->
+    <meta property="og:title" content="PREDWEEM - Explicación RÁPIDA (sin retardo)">
+    <meta property="og:description" content="Escuchá la explicación automática y probá el modelo predictivo de raigrás más preciso de Argentina.">
+    <meta property="og:image" content="https://predweem.github.io/propaganda/preview-ig.jpg"> <!-- Cambia por tu imagen vertical 1080x1920 -->
+    <meta property="og:url" content="https://predweem.github.io/propaganda/">
+    <meta property="og:type" content="website">
+    
+    <title>PREDWEEM - Explicación RÁPIDA (sin retardo)</title>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+        
+        :root {
+            --green: #00c853;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: linear-gradient(180deg, #001a0f 0%, #003322 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 20px 15px;
+            line-height: 1.5;
+        }
+        
+        .logo {
+            width: 110px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 20px rgba(0, 200, 83, 0.6));
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            background: linear-gradient(90deg, #00c853, #a3ff00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .subtitle {
+            font-size: 1.35rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+        
+        .audio-container {
+            width: 100%;
+            max-width: 420px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 30px;
+            padding: 30px 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 40px rgba(0, 200, 83, 0.2);
+        }
+        
+        #play-btn {
+            font-size: 28px;
+            padding: 22px 50px;
+            background: linear-gradient(90deg, #00c853, #00e676);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            box-shadow: 0 15px 30px rgba(0, 200, 83, 0.4);
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+            transition: all 0.3s ease;
+        }
+        
+        #play-btn:active {
+            transform: scale(0.95);
+        }
+        
+        .info {
+            margin-top: 40px;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .cta {
+            margin-top: 50px;
+            font-size: 1.4rem;
+            padding: 18px 60px;
+            background: white;
+            color: #001a0f;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-block;
+            box-shadow: 0 10px 25px rgba(255,255,255,0.3);
+        }
+        
+        .footer {
+            margin-top: auto;
+            padding-top: 40px;
+            font-size: 0.95rem;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
 
-<!-- Botón visible (se activa solo) -->
-<button 
-  id="play-btn"
-  style="font-size: 28px; padding: 18px 40px; background: linear-gradient(90deg, #28a745, #20c997); color: white; border: none; border-radius: 50px; box-shadow: 0 8px 20px rgba(40, 167, 69, 0.3); cursor: pointer; margin: 20px auto; display: block;">
-  ▶ ESCUCHAR EXPLICACIÓN RÁPIDA
-</button>
+    <!-- LOGO -->
+    <img src="https://predweem.github.io/propaganda/logo-predweem.png" alt="PREDWEEM" class="logo" onerror="this.src='https://via.placeholder.com/110x110/00c853/ffffff?text=PREDWEEM';">
 
-<script>
-  const audio = document.getElementById('explicacion-audio');
-  const btn = document.getElementById('play-btn');
+    <h1>PREDWEEM</h1>
+    <p class="subtitle">El modelo predictivo de raigrás<br>más preciso de Argentina 🇦🇷</p>
 
-  // Autoplay automático al cargar (muted al principio → los navegadores lo permiten)
-  window.addEventListener('load', () => {
-    audio.play().catch(() => {});
-  });
+    <!-- AUDIO AUTOMÁTICO OPTIMIZADO PARA INSTAGRAM -->
+    <div class="audio-container">
+        <audio id="explicacion-audio" src="explicacion.mp3" autoplay muted playsinline loop></audio>
+        
+        <button id="play-btn">
+            ▶ ESCUCHAR EXPLICACIÓN RÁPIDA
+        </button>
+        
+        <p style="margin-top: 20px; font-size: 1rem; opacity: 0.85;">
+            ⏳ Audio de 1:15 minutos<br>
+            <strong>Tocá la pantalla para activar el sonido</strong>
+        </p>
+    </div>
 
-  // Al tocar la pantalla (o abrir desde Instagram) → se activa el sonido
-  document.documentElement.addEventListener('touchstart', () => {
-    if (audio.muted) {
-      audio.muted = false;
-      audio.play();
-      btn.textContent = "🔊 REPRODUCIENDO...";
-      btn.style.background = "#20c997";
-    }
-  }, { once: true }); // solo la primera vez
+    <a href="https://predweem.github.io/" class="cta">PROBAR EL MODELO GRATIS →</a>
 
-  // Si alguien toca el botón también funciona
-  btn.addEventListener('click', () => {
-    audio.muted = false;
-    audio.play();
-    btn.textContent = "🔊 REPRODUCIENDO...";
-  });
-</script>
+    <div class="info">
+        ✅ 100% gratis<br>
+        ✅ Sin registro<br>
+        ✅ Predicción en segundos<br>
+        ✅ Desarrollado por productores argentinos
+    </div>
+
+    <div class="footer">
+        PredWeem © 2026 • Hecho con ❤️ para los productores de raigrás
+    </div>
+
+    <script>
+        const audio = document.getElementById('explicacion-audio');
+        const btn = document.getElementById('play-btn');
+
+        // Autoplay automático (empieza muted para que los navegadores lo permitan)
+        window.addEventListener('load', () => {
+            audio.play().catch(() => {
+                console.log('%cAutoplay bloqueado por navegador - esperando interacción', 'color:#00c853');
+            });
+        });
+
+        // Activar sonido al tocar la pantalla (ideal para Instagram Stories / Reels)
+        document.documentElement.addEventListener('touchstart', () => {
+            if (audio.muted) {
+                audio.muted = false;
+                audio.play();
+                btn.innerHTML = `🔊 <strong>REPRODUCIENDO...</strong>`;
+                btn.style.background = 'linear-gradient(90deg, #00e676, #00c853)';
+            }
+        }, { once: true });
+
+        // Backup por si tocan el botón
+        btn.addEventListener('click', () => {
+            if (audio.muted) {
+                audio.muted = false;
+            }
+            audio.play();
+            btn.innerHTML = `🔊 <strong>REPRODUCIENDO...</strong>`;
+            btn.style.background = 'linear-gradient(90deg, #00e676, #00c853)';
+        });
+
+        // Si el usuario vuelve a tocar el botón, pausa/reproduce
+        let isPlaying = true;
+        btn.addEventListener('dblclick', () => {
+            if (isPlaying) {
+                audio.pause();
+                btn.innerHTML = `▶ ESCUCHAR EXPLICACIÓN RÁPIDA`;
+            } else {
+                audio.play();
+                btn.innerHTML = `🔊 <strong>REPRODUCIENDO...</strong>`;
+            }
+            isPlaying = !isPlaying;
+        });
+    </script>
+</body>
+</html>
